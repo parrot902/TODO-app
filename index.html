@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Simple To-Do list</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-direction: column;
+        transition: all 0.25s ease;
+        height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        gap: 10px;
+      }
+      .right,
+      .left {
+        box-shadow: 0 3px 8px;
+
+        border-radius: 10px;
+        padding: 40px;
+      }
+      input,
+      button,
+      select {
+        background-color: white;
+        border-radius: 8px;
+        padding: 10px;
+        transition: all 0.3s ease;
+        border: 3px solid #f4f7fb;
+      }
+      button {
+        color: white;
+        background-color: #6c5ce7;
+        transition: all 0.25s ease;
+        border: none;
+      }
+      button:hover {
+        background-color: #5947d1;
+        transform: scale(1.05);
+        box-shadow: 0 3px 8px #6c5ce7;
+      }
+      input:focus,
+      select:focus {
+        box-shadow: 0 3px 8px #6c5ce7;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        min-width: 100px;
+        border: 3px solid #f4f7fb;
+      }
+      li {
+        border-bottom: dashed 0.3px gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 30px;
+      }
+      h1,
+      h2 {
+        border: 3px solid #f4f7fb;
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      li div {
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+        gap: 10px;
+      }
+      @media (max-width: 600px) {
+        .container {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p style="text-align: left">Simple TO-DO LIST</p>
+
+    <div class="container">
+      <div class="left">
+        <div class="wrap">
+          <h2>Input the name and deadline of task</h2>
+          <input type="text" id="nameinp" placeholder="name" />
+          <input type="date" id="dateinp" />
+          <button id="addbtn">Add</button>
+        </div>
+        <div>
+          <h2>Filter status</h2>
+          <select id="filt">
+            <option value="all">All</option>
+            <option value="inpro">In progress</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+      </div>
+      <div class="right">
+        <h2>Tasks</h2>
+        <ul id="list"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
